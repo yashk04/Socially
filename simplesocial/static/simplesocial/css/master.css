@@ -1,0 +1,13 @@
+html,
+body {
+  font-family: 'Calistoga',cursive;
+  background: #000000;
+}
+
+#note {
+  position: absolute;
+  color: rgba(249,241,204,1);
+  left: 0;
+  right: 0;
+  user-select: none;
+}

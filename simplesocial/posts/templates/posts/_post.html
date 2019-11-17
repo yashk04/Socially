@@ -1,0 +1,21 @@
+<div class="post media">
+	<div class="media-body">
+		<br>
+		<h3>{{ post.message_html|safe }}</h3>
+		<strong>{{ post.user.username }}</strong>
+		<h5 class="media-heading">
+			<span class="username"><a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }} &ensp;</a></span>
+			<time class="time">{{ post.created_at|date:"d-m-Y" }}</time>
+			{% if post.group %}
+			  <span class="group-name"> &ensp; in &ensp; {{ post.group.name }}</span>
+			{% endif %}
+		</h5>
+		<div class="media-footer">
+			{% if user.is_authenticated and post.user == user and not hide_delete %}
+				<a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-simple">
+					<span class="text-danger icon-label">Delete</span>
+				</a>
+			{% endif %}
+		</div>
+	</div>
+</div>
